@@ -16,4 +16,9 @@ jobs:
       # Step 2: Update index.html
       - name: Update HTML
         run: |
-          sed -i '/<\/body>/i <p>Updated by Team Leader on '"$(date)"'</p>' index.html || echo "<p>Updated by Team Leader on $(date)</p>" >> index.html
+          echo "<p>Updated by benjaminhawa on $(date)</p>" >> index.html
+
+      # Step 3: Update README
+      - name: Update README
+        run: |
+          echo "### Updated by benjaminhawa on $(date '+%Y-%m-%d %H:%M:%S') [Commit: $(git rev-parse --short HEAD)]" >> README.md
